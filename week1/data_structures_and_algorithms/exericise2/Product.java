@@ -1,19 +1,19 @@
 
-package week1.data_structures_and_algortihms.exercise2;
+package week1.data_structures_and_algorithms.exericise2;
 
 public class Product {
-    public int id;
-    public String name;
-    public String productCategory;
+    public int productId;
+    public String productName;
+    public String category;
 
-    public Product(int identifier, String productName, String category) {
-        this.id = identifier;
-        this.name = productName;
-        this.productCategory = category;
+    public Product(int id, String name, String cat) {
+        this.productId = id;
+        this.productName = name;
+        this.category = cat;
     }
 
     @Override
     public String toString() {
-        return id + ": " + name + " (" + productCategory + ")";
+        return productId + ": " + productName + " (" + category + ")";
     }
 }
