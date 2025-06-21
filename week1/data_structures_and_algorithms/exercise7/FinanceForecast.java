@@ -1,34 +1,42 @@
-package week1.data_structures_and_algorithms.exercise2;
+package week1.data_structures_and_algorithms.exercise7;
 
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.Scanner;
 
-public class SearchAlgorithms {
+public class FinanceForecast {
 
-    public static void sortProductsByName(Product[] productList) {
-        Arrays.sort(productList, Comparator.comparing(p -> p.productName.toLowerCase()));
+    public static double calculateFutureValue(double amount, double rate, int years) {
+        if (years == 0) {
+            return amount;
+        }
+        return calculateFutureValue(amount * (1 + rate), rate, years - 1);
     }
 
-    public static Product searchProductBinary(Product[] sortedProducts, String searchName) {
-        int start = 0, end = sortedProducts.length - 1;
-
-        while (start <= end) {
-            int mid = (start + end) / 2;
-            int comparison = sortedProducts[mid].productName.compareToIgnoreCase(searchName);
-
-            if (comparison == 0) return sortedProducts[mid];
-            if (comparison < 0) start = mid + 1;
-            else end = mid - 1;
+    public static double calculateFutureValueIterative(double amount, double rate, int years) {
+        for (int i = 0; i < years; i++) {
+            amount *= (1 + rate);
         }
-        return null;
+        return amount;
     }
 
-    public static Product searchProductLinear(Product[] productList, String searchName) {
-        for (Product product : productList) {
-            if (product.productName.equalsIgnoreCase(searchName)) {
-                return product;
-            }
-        }
-        return null;
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the initial investment amount: ");
+        double initialAmount = scanner.nextDouble();
+
+        System.out.print("Enter the annual growth rate (%): ");
+        double ratePercent = scanner.nextDouble();
+        double rate = ratePercent / 100.0; 
+
+        System.out.print("Enter the number of years: ");
+        int years = scanner.nextInt();
+
+        double futureValueRecursive = calculateFutureValue(initialAmount, rate, years);
+        System.out.printf("Future value (using recursion) after %d years: %.2f\n", years, futureValueRecursive);
+
+        double futureValueIterative = calculateFutureValueIterative(initialAmount, rate, years);
+        System.out.printf("Future value (using loop) after %d years: %.2f\n", years, futureValueIterative);
+
+        scanner.close();
     }
 }
