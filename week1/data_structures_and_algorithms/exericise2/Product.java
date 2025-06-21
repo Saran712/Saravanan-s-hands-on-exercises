@@ -1,5 +1,5 @@
 
-package week1.datastructuresandalgortihms.exercise2;
+package week1.data_structures_and_algortihms.exercise2;
 
 public class Product {
     public int id;
