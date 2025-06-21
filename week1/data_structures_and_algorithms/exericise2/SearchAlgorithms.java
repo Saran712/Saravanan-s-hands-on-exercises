@@ -1,34 +1,32 @@
-package week1.data_structures_and_algorithms.exercise2;
+package week1.data_structures_and_algorithms.exericise2;
 
 import java.util.Arrays;
 import java.util.Comparator;
 
 public class SearchAlgorithms {
 
-    public static void sortProductsByName(Product[] productList) {
-        Arrays.sort(productList, Comparator.comparing(p -> p.productName.toLowerCase()));
-    }
-
-    public static Product searchProductBinary(Product[] sortedProducts, String searchName) {
-        int start = 0, end = sortedProducts.length - 1;
-
-        while (start <= end) {
-            int mid = (start + end) / 2;
-            int comparison = sortedProducts[mid].productName.compareToIgnoreCase(searchName);
-
-            if (comparison == 0) return sortedProducts[mid];
-            if (comparison < 0) start = mid + 1;
-            else end = mid - 1;
-        }
-        return null;
-    }
-
-    public static Product searchProductLinear(Product[] productList, String searchName) {
-        for (Product product : productList) {
-            if (product.productName.equalsIgnoreCase(searchName)) {
-                return product;
+    public static Product linearSearch(Product[] products, String targetName) {
+        for (Product p : products) {
+            if (p.productName.equalsIgnoreCase(targetName)) {
+                return p;
             }
         }
         return null;
+    }
+
+    public static Product binarySearch(Product[] products, String targetName) {
+        int left = 0, right = products.length - 1;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            int cmp = products[mid].productName.compareToIgnoreCase(targetName);
+            if (cmp == 0) return products[mid];
+            if (cmp < 0) left = mid + 1;
+            else right = mid - 1;
+        }
+        return null;
+    }
+
+    public static void sortByName(Product[] products) {
+        Arrays.sort(products, Comparator.comparing(p -> p.productName.toLowerCase()));
     }
 }
