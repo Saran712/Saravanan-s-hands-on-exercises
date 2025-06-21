@@ -1,5 +1,5 @@
 
-package week1.data_structures_and_algorithms.exericise2;
+package week1.data_structures_and_algorithms.exericise2.code;
 
 public class Product {
     public int productId;
