@@ -1,4 +1,4 @@
-package week1.datastructuresandalgorithms.exercise2;
+package week1.data_structures_and_algorithms.exercise2;
 
 import java.util.Arrays;
 import java.util.Comparator;
