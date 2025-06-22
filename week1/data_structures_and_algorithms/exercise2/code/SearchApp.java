@@ -1,4 +1,4 @@
-package week1.data_structures_and_algorithms.exericise2.code;
+package week1.data_structures_and_algorithms.exercise2.code;
 
 class SearchApp {
     public static void main(String[] args) {
