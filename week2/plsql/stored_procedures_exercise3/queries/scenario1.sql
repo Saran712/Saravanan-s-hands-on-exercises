@@ -1,6 +1,9 @@
-CREATE OR REPLACE PROCEDURE ProcessMonthlyInterest AS
+CREATE OR REPLACE PROCEDURE ProcessMonthlyInterest IS
 BEGIN
   UPDATE Accounts
-  SET balance = balance + (balance * 0.01)
-  WHERE account_type = 'SAVINGS';
+  SET Balance = Balance + (Balance * 0.01)
+  WHERE AccountType = 'Savings';
+
+  COMMIT;
 END;
+/
