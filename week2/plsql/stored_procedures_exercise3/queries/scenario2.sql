@@ -1,9 +1,12 @@
 CREATE OR REPLACE PROCEDURE UpdateEmployeeBonus(
-  dept_id IN NUMBER,
-  bonus_pct IN NUMBER
-) AS
+  p_Department IN VARCHAR2,
+  p_BonusPercent IN NUMBER
+) IS
 BEGIN
   UPDATE Employees
-  SET salary = salary + (salary * bonus_pct / 100)
-  WHERE department_id = dept_id;
+  SET Salary = Salary + (Salary * p_BonusPercent / 100)
+  WHERE Department = p_Department;
+
+  COMMIT;
 END;
+/
