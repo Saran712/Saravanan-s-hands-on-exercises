@@ -1,29 +1,29 @@
 CREATE OR REPLACE PROCEDURE TransferFunds(
-  from_acc IN NUMBER,
-  to_acc IN NUMBER,
-  amount IN NUMBER
-) AS
-  insufficient_balance EXCEPTION;
-  from_balance NUMBER;
+  p_FromAccountID IN NUMBER,
+  p_ToAccountID IN NUMBER,
+  p_Amount IN NUMBER
+) IS
+  v_Balance NUMBER;
 BEGIN
-  -- Check balance
-  SELECT balance INTO from_balance FROM Accounts WHERE account_id = from_acc;
-  
-  IF from_balance < amount THEN
-    RAISE insufficient_balance;
+  -- Check source balance
+  SELECT Balance INTO v_Balance
+  FROM Accounts
+  WHERE AccountID = p_FromAccountID;
+
+  IF v_Balance >= p_Amount THEN
+    -- Deduct from source
+    UPDATE Accounts
+    SET Balance = Balance - p_Amount
+    WHERE AccountID = p_FromAccountID;
+
+    -- Add to destination
+    UPDATE Accounts
+    SET Balance = Balance + p_Amount
+    WHERE AccountID = p_ToAccountID;
+
+    COMMIT;
+  ELSE
+    RAISE_APPLICATION_ERROR(-20001, 'Insufficient funds');
   END IF;
-
-  -- Deduct from sender
-  UPDATE Accounts SET balance = balance - amount WHERE account_id = from_acc;
-
-  -- Add to receiver
-  UPDATE Accounts SET balance = balance + amount WHERE account_id = to_acc;
-  
-  COMMIT;
-EXCEPTION
-  WHEN insufficient_balance THEN
-    DBMS_OUTPUT.PUT_LINE('Insufficient funds in source account.');
-  WHEN OTHERS THEN
-    DBMS_OUTPUT.PUT_LINE('Transfer failed: ' || SQLERRM);
-    ROLLBACK;
 END;
+/
