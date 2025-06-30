@@ -1,4 +1,4 @@
-package week3.Spring_Core_Maven.exercise4;
+package com.library.LibraryManagements.repository;
 
 public class BookRepository {
     public String getBookData() {
