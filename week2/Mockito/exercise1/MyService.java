@@ -1,5 +1,5 @@
 
-package com.example.JUnitDemo;
+package com.example.MockitoDemo;
 
 public class MyService {
 	private ExternalApi api;

@@ -1,5 +1,5 @@
 
-package com.example.JUnitDemo;
+package com.example.MockitoDemo;
 import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
