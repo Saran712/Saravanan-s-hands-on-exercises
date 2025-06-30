@@ -5,4 +5,4 @@ public class BookRepository {
     public String getBookData() {
         return "Book data from BookRepository";
     }
-}}
+}
