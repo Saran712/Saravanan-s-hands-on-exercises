@@ -1,4 +1,4 @@
-package week3.Spring_Core_Maven.Mandatory_HandsOn.exercise2;
+package com.library.LibraryManagement;
 
 import com.library.LibraryManagement.service.BookService;
 import org.springframework.context.ApplicationContext;
