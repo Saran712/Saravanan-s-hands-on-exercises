@@ -1,4 +1,4 @@
-package week2.JUnit_Testing.exercise3;
+package com.example.JUnitDemo;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
