@@ -1,5 +1,3 @@
-package week3.Spring_Core_Maven.Additional_HandsOn.exercise5;
-
 import com.library.LibraryManagements.repository.BookRepository;
 
 public class BookService {

@@ -1,4 +1,4 @@
-package com.library.LibraryManangement1.service;
+package com.library.LibraryManangement1.service.BookService;
 
 import com.library.LibraryManangement1.repository.BookRepository;
 
