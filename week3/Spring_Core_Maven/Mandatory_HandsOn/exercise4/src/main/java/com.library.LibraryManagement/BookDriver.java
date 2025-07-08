@@ -1,4 +1,4 @@
-package com.library.LibraryManagements;
+package com.library.LibraryManagement;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

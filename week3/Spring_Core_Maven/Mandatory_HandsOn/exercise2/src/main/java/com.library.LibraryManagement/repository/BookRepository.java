@@ -1,4 +1,4 @@
-package com.library.LibraryManagement.repository.BookRepository;
+package com.library.LibraryManagement.repository;
 
 public class BookRepository {
     public String getBookData() {

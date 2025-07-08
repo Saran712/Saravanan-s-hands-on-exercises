@@ -1,10 +1,11 @@
-package com.library.LibraryManagement.service.BookService;
+package com.library.LibraryManagement.repository;
 
 import com.library.LibraryManagement.repository.BookRepository;
 
 public class BookService {
     private BookRepository bookRepository;
-    
+
+    // ✅ Setter-based Dependency Injection
     public void setBookRepository(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
