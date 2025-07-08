@@ -4,9 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
                            https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="bookRepository" class="com.library.LibraryManagements.repository.BookRepository"/>
+    <bean id="bookRepository" class="com.library.LibraryManagement.repository.BookRepository"/>
 
-    <bean id="bookService" class="com.library.LibraryManagements.service.BookService">
+    <bean id="bookService" class="com.library.LibraryManagement.service.BookService">
         <property name="bookRepository" ref="bookRepository"/>
     </bean>
 

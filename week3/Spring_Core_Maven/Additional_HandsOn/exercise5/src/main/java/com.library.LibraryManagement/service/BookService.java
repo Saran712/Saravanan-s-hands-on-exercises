@@ -1,4 +1,4 @@
-import com.library.LibraryManagements.repository.BookRepository;
+import com.library.LibraryManagement.repository;
 
 public class BookService {
     private BookRepository bookRepository;

@@ -1,9 +1,9 @@
-package com.library.LibraryManagement1;
+package com.library.LibraryManagement;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.library.LibraryManangement1.service.BookService;
+import com.library.LibraryManangement.service.BookService;
 
 public class BookDriver {
     public static void main(String[] args) {
